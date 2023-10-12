@@ -129,4 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+#mounted volume for database
 postgresql
+
+package-lock.json
