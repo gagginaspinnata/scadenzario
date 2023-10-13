@@ -2,8 +2,8 @@
 import Fastify from "fastify";
 import * as DB from "./database.js";
 
-const port = 3000
-const host = "0.0.0.0"
+const port = 3000;
+const host = "0.0.0.0";
 
 const fastify = Fastify({
   logger: true,
@@ -23,16 +23,16 @@ fastify.listen({ port, host }, function (err, address) {
   // Server is now listening on ${address}
 });
 
-// let income = {
-//   "date":"2023-10-12",
-//   "description": "prova di inserimento",
-//   "value": 85,
-//   "payed": 1,
-//   "id":8
-// }
+let income = {
+  date: "2023-10-12",
+  description: "prova di inserimento",
+  value: 8589,
+  payed: 1,
+  payment_method: "bonifico",
+};
 
 // DB.insert(income)
 
 // DB.update_income(income)
 
-// console.log(await DB.get_incomes())
+console.log(await DB.get_outcomes());
