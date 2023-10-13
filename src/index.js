@@ -14,6 +14,15 @@ fastify.get("/", function (request, reply) {
   reply.send({ hello: "world2" });
 });
 
+
+fastify.get('/incomes', async function(request, reply){
+  reply.send(await DB.get_incomes())
+})
+
+fastify.get('/outcomes', async function(request, reply){
+  reply.send(await DB.get_outcomes())
+})
+
 // Run the server!
 fastify.listen({ port, host }, function (err, address) {
   if (err) {
@@ -30,9 +39,3 @@ let income = {
   payed: 1,
   payment_method: "bonifico",
 };
-
-// DB.insert(income)
-
-// DB.update_income(income)
-
-console.log(await DB.get_outcomes());
