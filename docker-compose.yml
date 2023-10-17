@@ -1,14 +1,16 @@
 version: "3.8"
 services:
-  web-server:
-    build: .
+
+  backend:
+    build: ./backend
     ports:
       - "3000:3000"
     volumes:
-      - ./src/:/app/src
+      - ./backend/src/:/app/src
     depends_on:
       - db
     restart: unless-stopped
+
 
   db:
     image: postgres
