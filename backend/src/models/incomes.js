@@ -40,7 +40,7 @@ const income = sequelize.define(
 
 
 // sincronizzazione del DB
-await sequelize.sync({ force: true });
+await sequelize.sync({ });
 
 
 
