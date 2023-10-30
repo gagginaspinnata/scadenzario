@@ -39,3 +39,7 @@ let income = {
   payed: 1,
   payment_method: "bonifico",
 };
+
+
+// console.log(await DB.get_incomes())
+// await DB.insert_income(income)
