@@ -35,12 +35,12 @@ import {income} from "./models/incomes.js"
 // await sequelize.sync({ force: true });
 
 async function get_incomes() {
-  let incomes = await income.income.findAll();
+  let incomes = await income.findAll();
   return incomes
 }
 
 async function insert_income(i) {
- await income.income.create(i);
+ await income.create(i);
 
 }
 
