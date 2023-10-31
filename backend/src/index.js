@@ -1,5 +1,6 @@
 // ESM
 import Fastify from "fastify";
+import cors from '@fastify/cors'
 import {get_incomes, insert_income}  from "./models/incomes.js";
 import { get_outcomes, insert_outcome } from "./models/outcomes.js";
 
@@ -9,6 +10,11 @@ const host = "0.0.0.0";
 const fastify = Fastify({
   logger: true,
 });
+
+// opzione per abilitare cors
+await fastify.register(cors, { 
+  // put your options here
+})
 
 // Declare a route
 fastify.get("/", function (request, reply) {

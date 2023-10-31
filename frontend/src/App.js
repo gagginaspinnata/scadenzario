@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react"
+import axios from "axios"
 
 function App() {
-  const url = 'http://localhost:3000/incomes'
+  const url = 'https://reimagined-halibut-4jg9w5g7q6fqxvg-3001.app.github.dev/incomes'
   const [data, setData] = useState([]);
 
-  const fetchInfo = () => {
-    return fetch(url)
-      .then((res) => res.json())
-      .then((d) => setData(d))
+  const fetchInfo = async() => {
+    let response = await axios.get(url)
+    setData(response['data'])
   }
 
 
@@ -32,10 +32,10 @@ function App() {
         >
           Learn React
         </a>
+        {data.map((value, index)=>(
+          <p>{value.description}</p>
+        ))}
       </header>
-      {data.map((income, index)=>{
-        <p>{income.value}</p>
-      })}
     </div>
   );
 }

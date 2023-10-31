@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^4.24.0",
+    "@fastify/cors": "latest",
     "nodemon": "^3.0.1",
     "package.json": "^2.0.1",
     "pg": "^8.11.3",
