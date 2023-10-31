@@ -1,6 +1,7 @@
 // ESM
 import Fastify from "fastify";
-import * as DB from "./database.js";
+import {get_incomes, insert_income}  from "./models/incomes.js";
+import { get_outcomes, insert_outcome } from "./models/outcomes.js";
 
 const port = 3000;
 const host = "0.0.0.0";
@@ -16,11 +17,11 @@ fastify.get("/", function (request, reply) {
 
 
 fastify.get('/incomes', async function(request, reply){
-  reply.send(await DB.get_incomes())
+  reply.send(await get_incomes())
 })
 
 fastify.get('/outcomes', async function(request, reply){
-  reply.send(await DB.get_outcomes())
+  reply.send(await get_outcomes())
 })
 
 // Run the server!

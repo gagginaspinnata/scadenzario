@@ -7,8 +7,8 @@ const sequelize = new Sequelize(
 );
 
 
-const income = sequelize.define(
-  "income",
+const outcome = sequelize.define(
+  "outcome",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -27,9 +27,12 @@ const income = sequelize.define(
     payed: {
       type: DataTypes.BOOLEAN,
     },
+    payment_method: {
+      type: DataTypes.TEXT,
+    },
   },
   {
-    tableName: "income",
+    tableName: "outcome",
   }
 );
 
@@ -39,18 +42,18 @@ const income = sequelize.define(
 await sequelize.sync({ });
 
 
-async function get_incomes() {
-  let incomes = await income.findAll();
+async function get_outcomes() {
+  let incomes = await outcome.findAll();
   return incomes
 }
 
-async function insert_income(i) {
- await income.create(i);
+async function insert_outcome(i) {
+ await outcome.create(i);
 
 }
 
 
 export {
- get_incomes,
- insert_income
+ get_outcomes,
+ insert_outcome
 };
